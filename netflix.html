@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Clone</title>
+  <style>
+    /* CSS code for styling the website */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      width: 150px;
+      margin: 20px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .navbar li {
+      margin: 0 10px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      color: #b81d24;
+    }
+
+    .showcase {
+      height: 90vh;
+      background-image: url("https://i.ibb.co/6tZwYc9/showcase.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .showcase h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .showcase p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e50914;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #b81d24;
+    }
+
+    .btn-xl {
+      font-size: 2rem;
+      padding: 15px 30px;
+    }
+
+    .btn-icon {
+      margin-left: 10px;
+    }
+
+    .tabs {
+      margin: 40px 0;
+    }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .tab-item i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .tab-item p {
+      font-size: 1.2rem;
+    }
+
+    .tab-border {
+      border-top: 4px solid #b81d24;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content-item {
+      padding: 20px;
+    }
+
+    .tab-content-item h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .tab-content-item p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .tab-1-content-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tab-1-content-inner img {
+      width: 300px;
+      margin-left: 20px;
+    }
+
+    .tab-2-content-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tab-2-content-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .tab-2-content-bottom div {
+      width: 30%;
+      text-align: center;
+    }
+
+    .tab-2-content-bottom img {
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .tab-3-content-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tab-3-content-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .tab-3-content-bottom div {
+      width: 30%;
+      text-align: center;
+    }
+
+    .tab-3-content-bottom h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .tab-3-content-bottom p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .tab-3-content-bottom .price {
+      color: #b81d24;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .tab-3-content-bottom .cancel {
+      color: gray;
+      font-size: 0.8rem;
+    }
+
+    .show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .logo {
+        margin: 10px;
+      }
+
+      .showcase h1 {
+        font-size: 3rem;
+      }
+
+      .showcase p {
+        font-size: 1.2rem;
+      }
+
+      .btn-xl {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+      }
+
+      .tab-1-content-inner {
+        flex-direction: column;
+      }
+
+      .tab-1-content-inner img {
+        width: 250px;
+        margin: 20px 0;
+      }
+
+      .tab-2-content-bottom {
+        flex-direction: column;
+      }
+
+      .tab-2-content-bottom div {
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      .tab-3-content-bottom {
+        flex-direction: column;
+      }
+
+      .tab-3-content-bottom div {
+        width: 100%;
+        margin: 20px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <div class="navbar">
+      <img src="https://i.ibb.co/r5krrdz/logo.png" alt="Netflix Logo" class="logo">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Latest</a></li>
+        <li><a href="#">My List</a></li>
+      </ul>
+    </div>
+    <!-- Showcase -->
+    <div class="showcase">
+      <h1>Unlimited movies, TV shows, and more.</h1>
+      <p>Watch anywhere. Cancel anytime.</p>
+      <a href="#" class="btn btn-xl">Watch Free For 30 Days <i class="fas fa-chevron-right btn-icon"></i></a>
+    </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab-item tab-border">
+        <i class="fas fa-door-open"></i>
+        <p>Cancel at any time</p>
+      </div>
+      <div class="tab-item">
+        <i class="fas fa-tablet-alt"></i>
+        <p>Watch anywhere</p>
+      </div>
+      <div class="tab-item">
+        <i class="fas fa-tags"></i>
+        <p>Pick your price</p>
+      </div>
+    </div>
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <!-- Tab Content 1 -->
+      <div id="tab-1-content" class="tab-content-item show">
+        <div class="tab-1-content-inner">
+          <div>
+            <p class="text-lg">If you decide Netflix isn't for you - no problem. No commitment. Cancel online anytime.</p>
+            <a href="#" class="btn btn-lg">Watch Free For 30 Days</a>
+          </div>
+          <img src="https://i.ibb.co/J2xDJV7/tab-content-1.png" alt="">
+        </div>
+      </div>
+      <!-- Tab Content 2 -->
+      <div id="tab-2-content" class="tab-content-item">
+        <div class="tab-2-content-top">
+          <p class="text-lg">Watch TV shows and movies anytime, anywhere — personalized for you.</p>
+          <a href="#" class="btn btn-lg">Watch Free For 30 Days</a>
+        </div>
+        <div class="tab-2-content-bottom">
+          <div>
+            <img src="https://i.ibb.co/DpdN7Gn/tab-content-2-1.png" alt="">
+            <p class="text-md">Watch on your TV</p>
+            <p class="text-dark">Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+          </div>
+          <div>
+            <img src="https://i.ibb.co/R3r1SPX/tab-content-2-2.png" alt="">
+            <p class="text-md">Watch instantly or download for later</p>
+            <p class="text-dark">Available on phone and tablet, wherever you go.</p>
+          </div>
+          <div>
+            <img src="https://i.ibb.co
